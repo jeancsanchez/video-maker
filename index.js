@@ -1,9 +1,15 @@
 const readLine = require('readline-sync')
+const robots = {
+    text: require('./robots/text.js')
+}
+
 
 function start() {
     const content = {}
     content.searchTerm = readLine.question('Digite um termo do Wikipedia: ')
     content.prefix =  readPrefix()
+
+    robots.text(content)
     console.log(content)
 
     function readPrefix(){
