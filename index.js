@@ -4,17 +4,18 @@ const robots = {
 }
 
 
-function start() {
+async function start() {
     const content = {}
     content.searchTerm = readLine.question('Digite um termo do Wikipedia: ')
     content.prefix =  readPrefix()
 
-    robots.text(content)
+    await robots.text(content)
     console.log(content)
 
     function readPrefix(){
-        const prefixes = ['Que é', 'Quem foi', 'O que é', 'A historia de', 'A historia do']
-        return readLine.keyInSelect(prefixes, 'Selecione um prefixo: ')
+        const prefixes = ['Quem é', 'Quem foi', 'O que é', 'A historia de', 'A historia do']
+        const prefix = readLine.keyInSelect(prefixes, 'Selecione um prefixo: ')
+        return prefixes[prefix]
     }
 }
 
